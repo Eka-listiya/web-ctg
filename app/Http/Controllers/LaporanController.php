@@ -58,7 +58,7 @@ class LaporanController extends Controller
      */
     public function detail($id)
     {
-        return view('admin.laporan.detail', array($id));
+        return view('admin.laporan.detail');
     }
 
     /**
@@ -81,6 +81,6 @@ class LaporanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return "delete laporan with id $id";
     }
 }

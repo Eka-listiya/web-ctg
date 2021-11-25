@@ -33,3 +33,4 @@ Route::delete('/patients/{id}', 'PasienController@destroy')->name('pasien-delete
 // route laporan medis
 Route::get('/laporan', 'LaporanController@index')->name('laporan');
 Route::get('/laporan/{id}', 'LaporanController@detail')->name('laporan-detail');
+Route::delete('/laporan/{id}', 'LaporanController@destroy')->name('laporan-delete');
