@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Pasien;
+use App\laporan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LaporanController extends Controller
 {
@@ -14,8 +16,12 @@ class LaporanController extends Controller
      */
     public function index()
     {
-        $data = Pasien::all();
-        return view('admin.laporan.index', compact('data'));
+        $pasiens = DB::table('pasiens')
+            ->select('*')
+            ->leftJoin('laporans', 'pasiens.id', '=', 'laporans.pasien_id')
+            ->get();
+
+        dd($pasiens->toArray());
     }
 
     /**

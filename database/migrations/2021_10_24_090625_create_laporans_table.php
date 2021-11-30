@@ -14,12 +14,16 @@ class CreateLaporansTable extends Migration
     public function up()
     {
         Schema::create('laporans', function (Blueprint $table) {
-            
             $table->id();
-            $table->string('name');
+            $table->bigInteger('pasien_id')->unsigned()->nullable();
             $table->string('kode_pemeriksaan');
             $table->string('tanggal');
-            $table->time('waktu');        
+            $table->time('waktu');
+            $table->string('avg_fhr')->nullable();
+            $table->string('avg_toco')->nullable();
+            
+            $table->foreign('pasien_id')->references('id')->on('pasiens')->cascadeOnDelete();
+            
             $table->timestamps();
         });
     }

@@ -36,12 +36,13 @@
                                         </th>
                                     </thead>
                                     <tbody>
+                                        @foreach ($data as $key => $value)
                                         <tr>
                                             <td>
-                                                1
+                                                {{ ++$key }}
                                             </td>
                                             <td>
-                                                Yofan
+                                                {{$value}}
                                             </td>
                                             <td>
                                                 Banyuwangi
@@ -66,6 +67,7 @@
                                                 </form>
                                             </td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
